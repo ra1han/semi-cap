@@ -4,11 +4,11 @@
 
 **Audience:** Prospective semiconductor customers, including engineering, product management, technical marketing, sourcing, and enterprise technology leaders.
 
-**Core message:** CognixLabs combines semiconductor domain data engineering, product and component intelligence, private enterprise AI, and agentic EDA workflows to help semiconductor organizations improve product decisions, accelerate engineering analysis, and make better use of proprietary technical knowledge.
+**Core message:** CognixLabs combines Semiconductor data intelligence, Product intelligence, and Design and manufacturing engineering, supported by private enterprise AI and approved integrations, to help semiconductor organizations improve product decisions, accelerate engineering analysis, and make better use of proprietary technical knowledge.
 
 This document describes CognixLabs's established capability areas and provides source material for a customer presentation. Deployment scope, supported tools, integrations, and acceptance criteria are agreed for each engagement. Reference architectures and example workflows below illustrate how capabilities can be applied; they are not claims of a particular customer deployment, certification, or measured result.
 
-## 1. Executive overview
+## Executive overview
 
 Semiconductor organizations work across large volumes of fragmented information: datasheets, application notes, product portfolios, competitor specifications, bills of materials, design rules, and implementation reports. Much of this information is difficult to search, compare, or reuse consistently.
 
@@ -17,18 +17,20 @@ CognixLabs addresses this challenge through three connected capability pillars:
 | Pillar | Capabilities | Customer value |
 | --- | --- | --- |
 | Semiconductor data intelligence | Semiconductor domain ontology and canonical data model, datasheet digitization, parametric data extraction and normalization, governed data platform | Unify fragmented information into structured, traceable semiconductor data for analytics and AI |
-| Product and component intelligence | Product intelligence copilot, portfolio benchmarking, BOM intelligence, component cross-reference and lifecycle risk analysis | Make product knowledge accessible and support evidence-based comparison and component decisions |
-| IC design and enterprise engineering | Agentic IC layout porting, PPA analysis and design-space exploration, private LLM inference, Microsoft Copilot and enterprise integration | Connect AI to controlled engineering workflows and the enterprise systems where teams already work |
+| Product intelligence | Product intelligence copilot, portfolio benchmarking, BOM intelligence, component cross-reference and lifecycle risk analysis | Make product knowledge accessible and support evidence-based comparison and component decisions |
+| Design and manufacturing engineering | Agentic IC layout porting, PPA analysis and design-space exploration | Connect AI to controlled engineering workflows while retaining engineering validation and signoff |
+
+Private LLM inference, Microsoft Copilot, and enterprise integration support all three pillars. The engineering workflows detailed in this document focus on IC layout migration and PPA exploration.
 
 **Presentation headline:** From semiconductor data and technical knowledge to product intelligence and engineering execution.
 
-## 2. Semiconductor data foundation
+## Pillar 1: Semiconductor data intelligence
 
-### Semiconductor domain ontology and canonical data model
+### Semiconductor data foundation
 
-CognixLabs designs and builds semiconductor data platforms using a proprietary semiconductor domain ontology and canonical data model. By processing datasheets and other approved internal and external sources, CognixLabs transforms fragmented information into consistent, reusable data for applications, analytics, and copilots.
+#### Proprietary semiconductor domain ontology, canonical data model and taxonomy
 
-### Proprietary semiconductor data model and taxonomy
+CognixLabs designs and builds semiconductor data platforms using a proprietary semiconductor domain ontology, canonical data model and controlled taxonomy. By processing datasheets and other approved internal and external sources, CognixLabs transforms fragmented information into consistent, reusable data for applications, analytics, and copilots.
 
 The canonical data model defines how semiconductor entities, attributes, specifications, and relationships are represented. The domain ontology and controlled taxonomy provide shared semantics across device categories, product families, applications, technologies, packages, qualification schemes, and parametric attributes.
 
@@ -44,7 +46,7 @@ The canonical data model defines how semiconductor entities, attributes, specifi
 - **Ontology:** Explicit relationships between domain concepts, such as a device belonging to a family, an orderable part using a package, or a specification applying under stated conditions.
 - **Shared semantics:** Controlled names, synonyms, units, and definitions that let different documents and systems refer to the same concepts consistently.
 
-### Datasheet digitization, parametric data extraction and source integration
+#### Datasheet digitization, parametric data extraction and source integration
 
 - Process datasheets, application notes, selection guides, approved internal engineering and product documentation, and licensed or otherwise authorized external sources.
 - Extract parametric specifications, electrical characteristics, absolute-maximum ratings, recommended operating conditions, thermal data, package information, ordering codes, qualification details, tables and relevant footnotes from supported documents; ingest structured records from approved source systems.
@@ -54,7 +56,7 @@ The canonical data model defines how semiconductor entities, attributes, specifi
 - Route ambiguous extraction results and conflicting values for validation.
 - Preserve original evidence and source permissions alongside normalized records.
 
-### Building the semiconductor data warehouse
+#### Building the semiconductor data warehouse
 
 - Design and build a governed data warehouse around the proprietary semiconductor data model and taxonomy.
 - Integrate validated information from approved internal and external sources into consistent, linked records.
@@ -69,20 +71,11 @@ A knowledge graph can complement the warehouse when relationship-oriented querie
 
 **Customer value:** Establish a governed semiconductor data foundation that unifies authorized internal and external information, preserves specification provenance, and supports multiple product, sourcing, analytics and engineering use cases.
 
-**## Terminology and engineering boundaries
-The following terms are used deliberately throughout this document:
-MPN (Manufacturer Part Number): The manufacturer's identifier for a specific component or orderable variant. Customer internal part numbers and distributor SKUs are separate identifiers.
-Parametric data: Normalized component attributes and specifications, including units, limits, test conditions and provenance.
-Cross-reference: A candidate alternative identified by functional or parametric similarity. It does not imply pin, footprint or electrical interchangeability.
-Pin-to-pin compatible: A candidate with a matching pin assignment under the stated package and device conditions. This alone does not establish a drop-in replacement.
-Drop-in replacement: A component demonstrated to be interchangeable in a defined design context without material redesign, subject to the customer's validation and qualification process.
-PCN / EOL: Product Change Notification and End-of-Life lifecycle events. Availability and lifecycle assertions require current, attributable source data.
-PPA / QoR: Power, Performance and Area metrics, and broader implementation Quality of Results. Comparisons require controlled design inputs, constraints, libraries, tool settings and operating corners.
-IC layout porting: Adapting a physical IC layout and its implementation constraints to a different process technology or PDK. This is distinct from PCB footprint migration.
-These definitions help avoid implying that data similarity, AI-generated recommendations or automated checks replace engineering qualification, design verification or customer signoff.
-3. Product intelligence copilot**
+## Pillar 2: Product intelligence
 
-### Natural-language product research over a private knowledge base
+### Product intelligence copilot
+
+#### Natural-language product research over a private knowledge base
 
 CognixLabs enables teams to research products and ask technical questions using natural language across an organization's approved knowledge sources.
 
@@ -104,9 +97,9 @@ CognixLabs enables teams to research products and ask technical questions using 
 
 **Representative outputs:** Source-linked answers, product shortlists, comparison summaries, and unresolved-question lists.
 
-## 4. Product portfolio benchmarking and competitive intelligence
+### Product portfolio benchmarking and competitive intelligence
 
-### Evidence-based parametric benchmarking across product portfolios
+#### Evidence-based parametric benchmarking across product portfolios
 
 CognixLabs structures product and competitor information into comparable views that support positioning, portfolio analysis, and technical evaluation.
 
@@ -126,9 +119,9 @@ CognixLabs structures product and competitor information into comparable views t
 
 **Representative outputs:** Normalized benchmark matrices, portfolio gap summaries, and source-linked differentiator briefs.
 
-## 5. BOM intelligence and component risk analysis
+### BOM intelligence and component risk analysis
 
-### BOM scrubbing, component enrichment and engineering/sourcing risk analysis
+#### BOM scrubbing, component enrichment and engineering/sourcing risk analysis
 
 CognixLabs analyzes bills of materials by combining component identification, technical specifications, and available supply-chain information.
 
@@ -148,37 +141,13 @@ CognixLabs analyzes bills of materials by combining component identification, te
 
 **Representative outputs:** Enriched BOMs, data-quality findings, lifecycle and sourcing flags, and candidate-alternative reports with rationale.
 
-## 6. Privacy-first AI: self-hosted models and controlled adaptation
+## Pillar 3: Design and manufacturing engineering
 
-### Bring AI to sensitive semiconductor knowledge
+The workflows below focus on IC layout migration and PPA exploration, with engineering validation and signoff retained throughout.
 
-CognixLabs supports private AI deployments designed around the customer's data boundaries, intellectual-property requirements, and infrastructure constraints.
+### Agentic IC layout porting and process migration
 
-**Capability scope**
-
-- Self-hosted LLM inference within an agreed customer-controlled environment, such as on-premises infrastructure or a private cloud.
-- Retrieval-augmented generation over approved private knowledge sources.
-- Model selection and evaluation against domain tasks, infrastructure capacity, and operational requirements.
-- Fine-tuning or other model adaptation when justified by task evidence and approved training data.
-- Integration with identity, authorization, audit, retention, and operational controls defined for the deployment.
-
-### Retrieval and fine-tuning serve different purposes
-
-- **Retrieval** grounds answers in current, permission-controlled documents and supports source citation.
-- **Fine-tuning** adapts model behavior for tasks such as domain extraction, classification, or structured output.
-- Fine-tuning is not a substitute for a current knowledge base, source traceability, or access control.
-
-### Privacy design considerations
-
-The deployment boundary must cover more than model inference: source files, embeddings, indexes, prompts, responses, caches, logs, backups, telemetry, and any training artifacts all require explicit handling policies. Retrieval must enforce user authorization before content reaches the model; a shared index must not expose restricted material.
-
-Customer data use for model training must be explicitly authorized. Adapted models require their own access and retention controls because training can encode sensitive information. Restricted information should not be placed into a model shared across incompatible access groups.
-
-**Customer value:** Apply AI to proprietary information while retaining control over where data is processed and how it is used.
-
-## 7. Agentic IC layout porting and process migration
-
-### Tool-connected assistance for IC layout porting and process-node migration
+#### Tool-connected assistance for IC layout porting and process-node migration
 
 CognixLabs applies agentic AI to assist layout migration workflows: interpreting migration requirements, coordinating approved tool operations, analyzing results, and preparing changes for engineering review.
 
@@ -205,9 +174,9 @@ CognixLabs applies agentic AI to assist layout migration workflows: interpreting
 
 **Dependencies:** Authorized source design data, source and target PDKs, compatible EDA interfaces, tool licenses, and an agreed verification flow.
 
-## 8. PPA analysis and design-space exploration
+### PPA analysis and design-space exploration
 
-### AI-assisted design-space exploration across power, performance and area (PPA)
+#### AI-assisted design-space exploration across power, performance and area (PPA)
 
 CognixLabs helps engineering teams interpret implementation results, identify bottlenecks, and explore optimization candidates within an agreed semiconductor design flow.
 
@@ -235,9 +204,41 @@ Baseline design and constraints -> report analysis -> candidate hypotheses -> ap
 
 **Customer value:** Make design-space exploration more systematic and help engineers prioritize useful experiments. Results remain design- and flow-dependent; no universal PPA improvement is implied.
 
-## 9. Microsoft Copilot and enterprise integration
+## Shared enablers across all three pillars
 
-### Deliver semiconductor intelligence within existing work environments
+Private AI, enterprise integration, and governance support each pillar rather than forming separate capability pillars.
+
+### Privacy-first AI: self-hosted models and controlled adaptation
+
+#### Bring AI to sensitive semiconductor knowledge
+
+CognixLabs supports private AI deployments designed around the customer's data boundaries, intellectual-property requirements, and infrastructure constraints.
+
+**Capability scope**
+
+- Self-hosted LLM inference within an agreed customer-controlled environment, such as on-premises infrastructure or a private cloud.
+- Retrieval-augmented generation over approved private knowledge sources.
+- Model selection and evaluation against domain tasks, infrastructure capacity, and operational requirements.
+- Fine-tuning or other model adaptation when justified by task evidence and approved training data.
+- Integration with identity, authorization, audit, retention, and operational controls defined for the deployment.
+
+#### Retrieval and fine-tuning serve different purposes
+
+- **Retrieval** grounds answers in current, permission-controlled documents and supports source citation.
+- **Fine-tuning** adapts model behavior for tasks such as domain extraction, classification, or structured output.
+- Fine-tuning is not a substitute for a current knowledge base, source traceability, or access control.
+
+#### Privacy design considerations
+
+The deployment boundary must cover more than model inference: source files, embeddings, indexes, prompts, responses, caches, logs, backups, telemetry, and any training artifacts all require explicit handling policies. Retrieval must enforce user authorization before content reaches the model; a shared index must not expose restricted material.
+
+Customer data use for model training must be explicitly authorized. Adapted models require their own access and retention controls because training can encode sensitive information. Restricted information should not be placed into a model shared across incompatible access groups.
+
+**Customer value:** Apply AI to proprietary information while retaining control over where data is processed and how it is used.
+
+### Microsoft Copilot and enterprise integration
+
+#### Deliver semiconductor intelligence within existing work environments
 
 CognixLabs connects domain intelligence with Microsoft 365 Copilot and enterprise workflows through supported extension and integration mechanisms selected for the customer's environment.
 
@@ -255,7 +256,7 @@ CognixLabs connects domain intelligence with Microsoft 365 Copilot and enterpris
 
 **Customer value:** Bring domain-specific AI into familiar enterprise workflows without creating an isolated knowledge destination.
 
-## 10. Reference solution architecture
+### Reference solution architecture
 
 The following is a composable architecture, not a requirement to deploy every component:
 
@@ -272,7 +273,22 @@ The following is a composable architecture, not a requirement to deploy every co
 
 Agent permissions should be narrowly scoped, tool execution isolated, and material changes approval-gated. Documents and tool outputs are evidence to interpret, not instructions that can override workflow policy. Actions need traceability and recoverable checkpoints.
 
-## 11. Customer engagement and success criteria
+### Terminology and engineering boundaries
+
+The following terms are used deliberately throughout this document:
+
+- **MPN (Manufacturer Part Number):** The manufacturer's identifier for a specific component or orderable variant. Customer internal part numbers and distributor SKUs are separate identifiers.
+- **Parametric data:** Normalized component attributes and specifications, including units, limits, test conditions and provenance.
+- **Cross-reference:** A candidate alternative identified by functional or parametric similarity. It does not imply pin, footprint or electrical interchangeability.
+- **Pin-to-pin compatible:** A candidate with a matching pin assignment under the stated package and device conditions. This alone does not establish a drop-in replacement.
+- **Drop-in replacement:** A component demonstrated to be interchangeable in a defined design context without material redesign, subject to the customer's validation and qualification process.
+- **PCN / EOL:** Product Change Notification and End-of-Life lifecycle events. Availability and lifecycle assertions require current, attributable source data.
+- **PPA / QoR:** Power, Performance and Area metrics, and broader implementation Quality of Results. Comparisons require controlled design inputs, constraints, libraries, tool settings and operating corners.
+- **IC layout porting:** Adapting a physical IC layout and its implementation constraints to a different process technology or PDK. This is distinct from PCB footprint migration.
+
+These definitions help avoid implying that data similarity, AI-generated recommendations or automated checks replace engineering qualification, design verification or customer signoff.
+
+## Customer engagement and success criteria
 
 ### Begin with a bounded business or engineering workflow
 
@@ -284,37 +300,18 @@ Agent permissions should be narrowly scoped, tool execution isolated, and materi
 
 ### Agree measurable outcomes before execution
 
-| Capability | Example evaluation measures |
-| --- | --- |
-| Product intelligence | Expert-rated answer correctness, citation support, correct abstention, research time |
-| Product portfolio benchmarking and competitive intelligence | Specification coverage, condition-aware comparison accuracy, source freshness |
-| BOM intelligence and component risk analysis | Part-resolution accuracy, actionable findings, engineering acceptance of shortlisted alternatives |
-| Semiconductor data foundation | Source coverage, extraction accuracy, condition and unit preservation, taxonomy mapping accuracy, warehouse data quality and freshness |
-| Privacy-first deployment | Authorization test results, data-flow verification, audit coverage, deployment-boundary compliance |
-| Layout migration | Engineer effort, verification outcomes, unresolved violations, validated milestone completion |
-| PPA optimization | Measured power, timing and area against a controlled baseline; experiment cost and turnaround |
-| Enterprise integration | Permission fidelity, workflow completion, user adoption, response latency |
+| Pillar or shared enabler | Capability | Example evaluation measures |
+| --- | --- | --- |
+| Semiconductor data intelligence | Semiconductor data foundation | Source coverage, extraction accuracy, condition and unit preservation, taxonomy mapping accuracy, warehouse data quality and freshness |
+| Product intelligence | Product intelligence copilot | Expert-rated answer correctness, citation support, correct abstention, research time |
+| Product intelligence | Product portfolio benchmarking and competitive intelligence | Specification coverage, condition-aware comparison accuracy, source freshness |
+| Product intelligence | BOM intelligence and component risk analysis | Part-resolution accuracy, actionable findings, engineering acceptance of shortlisted alternatives |
+| Design and manufacturing engineering | Layout migration | Engineer effort, verification outcomes, unresolved violations, validated milestone completion |
+| Design and manufacturing engineering | PPA optimization | Measured power, timing and area against a controlled baseline; experiment cost and turnaround |
+| Shared enabler | Privacy-first deployment | Authorization test results, data-flow verification, audit coverage, deployment-boundary compliance |
+| Shared enabler | Enterprise integration | Permission fidelity, workflow completion, user adoption, response latency |
 
 Targets are engagement-specific. Quantified savings, accuracy, optimization gains, customer references, supported-tool lists, and certification claims should appear in customer collateral only when supported by approved evidence.
-
-## 12. Suggested presentation storyline
-
-| Slide | Headline | Key message | Suggested visual |
-| --- | --- | --- | --- |
-| 1 | CognixLabs: AI for Semiconductor Intelligence and Engineering | Private knowledge, domain data, and controlled engineering workflows | Three-pillar capability map |
-| 2 | Turn Fragmented Information into Usable Knowledge | Semiconductor information needs structure, context, and traceability | Sources-to-decisions flow |
-| 3 | Build a Semiconductor Data Foundation | Process datasheets and internal/external sources using a proprietary semiconductor data model and taxonomy to build a governed data warehouse | Sources-to-warehouse diagram |
-| 4 | Ask Your Product Knowledge | Natural-language research over an authorized private knowledge base | Source-linked Q&A demonstration |
-| 5 | Benchmark Products with Evidence | Compare specifications without losing operating conditions | Annotated comparison matrix |
-| 6 | Make BOM Decisions More Informed | Connect component identity, technical fit, and sourcing context | Enriched BOM with review flags |
-| 7 | Keep Sensitive Knowledge Under Control | Private inference, permission-aware retrieval, and controlled adaptation | Data-boundary diagram |
-| 8 | Assist Layout Migration with Agentic Workflows | Coordinate approved tool actions and verification with engineers in control | Migration loop with approval gates |
-| 9 | Explore PPA Trade-offs Systematically | Use measured experiments to evaluate optimization candidates | Baseline-versus-candidate trade-off plot |
-| 10 | Bring Intelligence into Enterprise Workflows | Integrate through Microsoft Copilot and approved business systems | User experience and connector map |
-| 11 | Start Focused and Measure Outcomes | Agree a bounded use case and validate against customer evidence | Engagement stages and scorecard |
-| 12 | Choose the First Workflow to Transform | Connect a priority challenge to a scoped deployment | Use-case selection matrix |
-
-Use clearly labeled illustrative or sanitized examples for demonstrations. Do not substitute synthetic results for customer evidence.
 
 ## Closing message
 
